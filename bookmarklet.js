@@ -79,17 +79,32 @@
             return '';
         }
     }
-
     /**
-     * ユーザーが発行したyukichiコインを取得（簡略化：空文字を返す）
+     * ユーザーが発行したyukichiコインを取得
      * @param {string} address - Ethereumアドレス
      * @param {string} userId - ユーザーID（ログ用）
-     * @returns {Promise<string>} 空文字
+     * @returns {Promise<string>} 発行コイン情報（カンマ区切り）
      */
     async function getYukichiCoins(address, userId) {
-        // 処理を簡略化し、常に空文字を返す
-        return '';
+        if (!address) return '';
+        
+        try {
+            // アドレスをチェックサムアドレスに変換
+            const response = await fetch(`https://yukichi-vote-api.lideru.party/api/tokens/issuer/${address}`);
+            if (response.ok) {
+                const data = await response.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    // 複数のコインがある場合はカンマ区切りで結合
+                    return data.map(token => `${token.name}(${token.symbol})`).join(', ');
+                }
+            }
+            return '';
+        } catch (error) {
+            console.warn(`Yukichiコイン取得エラー (User ${userId}):`, error);
+            return '';
+        }
     }
+
 
     /**
      * ユーザーのInuBalance（MCHINU残高）を取得
