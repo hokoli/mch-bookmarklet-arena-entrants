@@ -4,10 +4,11 @@ My Crypto Heroes（MCH）のアリーナ・トーナメント参加者のデー�
 
 ## 🔧 使用方法
 
-1. [mch-arena-entrants.js]をブックマークバーにドラッグ&ドロップ
-2. MCHのアリーナまたはトーナメントページを開く
-3. ブックマークから「MCH Arena Entrants」をクリック
-4. CSVファイルが自動ダウンロードされます
+1. [ブックマークレット追加ページ](https://hokoli.github.io/mch-bookmarklet-arena-entrants/)にアクセス
+2. [MCH Arena Entrants]をブックマークバーにドラッグ&ドロップ
+3. MCHのアリーナまたはトーナメントページを開く
+4. ブックマークから「MCH Arena Entrants」をクリック
+5. CSVファイルが自動ダウンロードされます
 
 ## 📊 取得データ
 
